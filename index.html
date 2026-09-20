@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f1115">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>健身动作速查</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>健身动作速查</h1>
+    <input id="q" type="search" placeholder="搜动作 / 肌肉 / 要点，如：高位下拉" autocomplete="off">
+  </header>
+
+  <!-- 筛选区：全部由 js/app.js 根据 data.js 的表自动生成 -->
+  <section class="filters">
+    <div class="chip-row" id="partChips"></div>
+    <div class="chip-row small" id="equipChips"></div>
+    <div class="chip-row small" id="typeChips"></div>
+    <div class="chip-row small" id="dayChips"></div>
+    <div class="chip-row small" id="bloggerChips"></div>
+    <div class="chip-row small">
+      <button id="mainOnly" class="toggle">只看主项</button>
+      <button id="favOnly" class="toggle">★ 只看收藏</button>
+      <button id="hideDone" class="toggle">隐藏已练 ✓</button>
+      <button id="clearFilters" class="toggle reset">清除筛选</button>
+    </div>
+  </section>
+
+  <p id="count" class="count"></p>
+  <main id="list" class="list"></main>
+
+  <div id="empty" class="empty" hidden>
+    <p>没有符合的动作</p>
+    <p class="muted">减少筛选条件试试，或去 <a href="admin.html">录入页</a> 添加</p>
+  </div>
+
+  <footer class="foot">
+    <a href="admin.html">＋ 录入新动作 / 挂视频 / 管理博主</a>
+    <p class="hint">视频行上的 ▶ 时间是该动作开始讲解的位置；B 站/YouTube 链接会自动从该处播放，抖音链接请手动拖到此时间。</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
