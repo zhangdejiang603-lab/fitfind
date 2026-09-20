@@ -115,10 +115,10 @@ function sortMoves(list) {
 
 // ---------- 渲染动作卡片 ----------
 function cardHtml(m) {
-  const bTags = m.videos.map(v => bloggerOf(v.blogger));
+  // 五种标签用五个 class，样式在 style.css 里严格区分
   const tags = [
-    `<span class="tag">${esc(PARTS[m.part] || m.part)}</span>`,
-    ...m.equipment.map(e => `<span class="tag">${esc(EQUIPMENT[e] || e)}</span>`),
+    `<span class="tag part">${esc(PARTS[m.part] || m.part)}</span>`,
+    ...m.equipment.map(e => `<span class="tag equip">${esc(EQUIPMENT[e] || e)}</span>`),
     `<span class="tag type">${esc(MOVE_TYPES[m.type] || m.type)}</span>`,
     ...m.days.map(d => `<span class="tag day">${esc(DAYS[d] || d)}</span>`)
   ].join("");
@@ -130,7 +130,7 @@ function cardHtml(m) {
         const timeBadge = v.start ? `<span class="v-time">▶ ${formatTime(v.start)}</span>` : "";
         return `
         <div class="video-row">
-          <span class="v-title"><span class="dot" style="background:${b.color}"></span>${esc(b.name)} · ${esc(v.title)}${v.note ? `<span class="v-note">${esc(v.note)}</span>` : ""}${timeBadge}</span>
+          <span class="v-title"><span class="dot" style="background:${b.color}"></span><b>${esc(b.name)}</b> · ${esc(v.title)}${v.note ? `<span class="v-note">${esc(v.note)}</span>` : ""}${timeBadge}</span>
           <a class="v-open" href="${esc(videoUrlWithStart(v.url, v.start))}" target="_blank" rel="noopener">打开 ↗</a>
         </div>`;
       }).join("")
@@ -138,18 +138,18 @@ function cardHtml(m) {
 
   return `
   <article class="card${done.has(m.id) ? " watched" : ""}" data-id="${esc(m.id)}">
-    <div class="card-main">
+    <div class="card-head">
       <h3>${esc(m.name)}${m.main ? '<span class="badge">主项</span>' : ""}</h3>
-      <p class="muscles">目标：${m.muscles.map(esc).join(" · ")}</p>
-      <div class="tags">${tags}</div>
-      <p class="scheme">${esc(m.scheme)}</p>
-      <p class="note">${esc(m.tips)}</p>
-      <div class="videos">${videoRows}</div>
+      <div class="acts">
+        <button class="icon-btn fav${favs.has(m.id) ? " on" : ""}" data-action="fav" title="收藏">★</button>
+        <button class="icon-btn done-btn${done.has(m.id) ? " on" : ""}" data-action="done" title="标记已练">✓</button>
+      </div>
     </div>
-    <div class="card-actions">
-      <button class="icon-btn fav${favs.has(m.id) ? " on" : ""}" data-action="fav" title="收藏">★</button>
-      <button class="icon-btn done-btn${done.has(m.id) ? " on" : ""}" data-action="done" title="标记已练">✓</button>
-    </div>
+    <p class="muscles">目标：${m.muscles.map(esc).join(" · ")}</p>
+    <div class="tags">${tags}</div>
+    <p class="scheme">安排 ${esc(m.scheme)}</p>
+    <p class="note">${esc(m.tips)}</p>
+    <div class="videos">${videoRows}</div>
   </article>`;
 }
 

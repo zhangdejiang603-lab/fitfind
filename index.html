@@ -6,29 +6,47 @@
   <meta name="theme-color" content="#0f1115">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>健身动作速查</title>
+  <title>Fitfind</title>
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icon-192.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="top">
-    <h1>健身动作速查</h1>
+    <h1>Fitfind<span class="sub">健身动作速查</span></h1>
     <input id="q" type="search" placeholder="搜动作 / 肌肉 / 要点，如：高位下拉" autocomplete="off">
   </header>
 
-  <!-- 筛选区：全部由 app.js 根据 data.js 的表自动生成 -->
+  <!-- 筛选区：每个维度一行，按钮由 app.js 根据 data.js 的表自动生成 -->
   <section class="filters">
-    <div class="chip-row" id="partChips"></div>
-    <div class="chip-row small" id="equipChips"></div>
-    <div class="chip-row small" id="typeChips"></div>
-    <div class="chip-row small" id="dayChips"></div>
-    <div class="chip-row small" id="bloggerChips"></div>
-    <div class="chip-row small">
-      <button id="mainOnly" class="toggle">只看主项</button>
-      <button id="favOnly" class="toggle">★ 只看收藏</button>
-      <button id="hideDone" class="toggle">隐藏已练 ✓</button>
-      <button id="clearFilters" class="toggle reset">清除筛选</button>
+    <div class="frow">
+      <span class="flabel">部位</span>
+      <div class="chips" id="partChips"></div>
+    </div>
+    <div class="frow">
+      <span class="flabel">器械</span>
+      <div class="chips small" id="equipChips"></div>
+    </div>
+    <div class="frow">
+      <span class="flabel">类型</span>
+      <div class="chips small" id="typeChips"></div>
+    </div>
+    <div class="frow">
+      <span class="flabel">训练日</span>
+      <div class="chips small" id="dayChips"></div>
+    </div>
+    <div class="frow">
+      <span class="flabel">博主</span>
+      <div class="chips small" id="bloggerChips"></div>
+    </div>
+    <div class="frow">
+      <span class="flabel"></span>
+      <div class="chips small">
+        <button id="mainOnly" class="toggle">只看主项</button>
+        <button id="favOnly" class="toggle">★ 只看收藏</button>
+        <button id="hideDone" class="toggle">隐藏已练 ✓</button>
+        <button id="clearFilters" class="toggle reset">清除筛选</button>
+      </div>
     </div>
   </section>
 

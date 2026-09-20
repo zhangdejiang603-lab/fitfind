@@ -1,4 +1,5 @@
-/* 深色主题 + 手机优先：健身房里单手操作，按钮都要够大 */
+/* Fitfind —— 深色主题 + 手机优先
+   设计原则：信息分层（部位/器械/类型/训练日/博主 五种视觉语言）、呼吸感间距、单手大按钮 */
 :root {
   --bg: #0f1115;
   --card: #1a1d24;
@@ -6,10 +7,12 @@
   --text: #e8eaf0;
   --muted: #9aa1ad;
   --accent: #ff6b35;
-  --accent-soft: rgba(255, 107, 53, 0.15);
+  --accent-soft: rgba(255, 107, 53, 0.16);
   --blue: #74c0fc;
+  --blue-soft: rgba(116, 192, 252, 0.14);
   --green: #69db7c;
   --yellow: #ffd43b;
+  --yellow-soft: rgba(255, 212, 59, 0.12);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -17,70 +20,85 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   background: var(--bg);
   color: var(--text);
-  font: 16px/1.5 -apple-system, "PingFang SC", "Noto Sans SC", sans-serif;
+  font: 16px/1.6 -apple-system, "PingFang SC", "Noto Sans SC", sans-serif;
   max-width: 720px;
   margin: 0 auto;
-  padding: 12px 14px 40px;
+  padding: 14px 16px 48px;
 }
 
-.top { position: sticky; top: 0; background: var(--bg); padding: 8px 0 10px; z-index: 10; }
-.top h1 { font-size: 20px; margin-bottom: 8px; }
+/* ---------- 顶部 ---------- */
+.top { position: sticky; top: 0; background: var(--bg); padding: 10px 0 12px; z-index: 10; }
+.top h1 { font-size: 26px; letter-spacing: 0.5px; display: flex; align-items: baseline; gap: 10px; }
+.top h1 .sub { font-size: 13px; font-weight: 400; color: var(--muted); letter-spacing: 2px; }
 .top input {
-  width: 100%; padding: 12px 14px; font-size: 16px;
+  width: 100%; padding: 12px 16px; font-size: 16px; margin-top: 10px;
   background: var(--card); color: var(--text);
   border: 1px solid var(--line); border-radius: 12px;
 }
 .top input:focus { outline: 2px solid var(--accent); border-color: transparent; }
 
-/* 筛选按钮行：可横向滑动 */
-.chip-row {
-  display: flex; gap: 8px; overflow-x: auto;
-  padding: 6px 0; -webkit-overflow-scrolling: touch;
+/* ---------- 筛选区：每行一个小标签 + 可换行的按钮组 ---------- */
+.filters { padding-top: 2px; }
+.frow { margin: 12px 0; }
+.flabel {
+  display: block; font-size: 11px; color: var(--muted);
+  letter-spacing: 2px; margin-bottom: 7px;
 }
-.chip-row.small .chip, .toggle { min-height: 36px; font-size: 14px; padding: 6px 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip, .toggle {
-  flex: 0 0 auto; min-height: 46px; padding: 10px 18px;
-  font-size: 16px; color: var(--text);
+  min-height: 42px; padding: 9px 18px;
+  font-size: 15px; color: var(--text);
   background: var(--card); border: 1px solid var(--line); border-radius: 999px;
   cursor: pointer; user-select: none;
 }
+.chips.small .chip, .toggle { min-height: 36px; font-size: 13.5px; padding: 6px 14px; }
 .chip.active, .toggle.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 600; }
 .toggle.reset { color: var(--muted); }
 
-.count { color: var(--muted); font-size: 13px; padding: 4px 2px; }
+.count { color: var(--muted); font-size: 13px; margin: 16px 2px 10px; }
 
-/* 动作卡片 */
-.list { display: flex; flex-direction: column; gap: 10px; }
+/* ---------- 动作卡片 ---------- */
+.list { display: flex; flex-direction: column; gap: 14px; }
 .card {
-  display: flex; gap: 10px; align-items: stretch;
   background: var(--card); border: 1px solid var(--line);
-  border-radius: 14px; padding: 12px;
+  border-radius: 16px; padding: 16px;
 }
 .card.watched { opacity: 0.55; }
-.card-main { flex: 1; min-width: 0; }
-.card h3 { font-size: 17px; margin-bottom: 2px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.muscles { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
-.scheme { color: var(--accent); font-weight: 700; font-size: 15px; margin: 8px 0 2px; }
-.note { color: var(--text); font-size: 13.5px; opacity: 0.9; margin-bottom: 8px; }
-.tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.tag {
-  font-size: 12px; color: var(--muted);
-  border: 1px solid var(--line); border-radius: 6px; padding: 1px 7px;
-}
-.tag.type { color: var(--yellow); border-color: #ffd43b44; }
-.tag.day { color: var(--blue); border-color: #74c0fc44; }
+
+.card-head { display: flex; align-items: flex-start; gap: 10px; }
+.card-head h3 { font-size: 17.5px; flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.acts { display: flex; gap: 6px; flex: 0 0 auto; }
+.acts .icon-btn { min-width: 38px; min-height: 38px; font-size: 16px; }
 
 .badge {
   font-size: 11px; font-weight: 700; color: var(--accent);
-  background: var(--accent-soft); border-radius: 6px; padding: 2px 6px;
+  background: var(--accent-soft); border-radius: 6px; padding: 2px 7px;
 }
 
+.muscles { color: var(--muted); font-size: 13px; margin: 6px 0 10px; }
+
+/* 标签：五种视觉语言严格区分 */
+.tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.tag { font-size: 12px; border-radius: 8px; padding: 3px 9px; }
+.tag.part   { background: var(--accent-soft); color: var(--accent); font-weight: 600; }            /* 部位：实心橙 */
+.tag.equip  { border: 1px solid var(--line); color: var(--muted); }                                  /* 器械：灰描边 */
+.tag.type   { background: var(--yellow-soft); color: var(--yellow); }                                /* 类型：黄底 */
+.tag.day    { background: var(--blue-soft); color: var(--blue); }                                    /* 训练日：蓝底 */
+
+/* 组数：左侧橙色竖条强调 */
+.scheme {
+  color: var(--accent); font-weight: 700; font-size: 15px;
+  border-left: 3px solid var(--accent);
+  padding-left: 9px; margin: 12px 0 6px;
+}
+.note { color: var(--text); opacity: 0.88; font-size: 13.5px; }
+
 /* 动作下挂的视频行 */
-.videos { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+.videos { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
 .video-row {
   display: flex; align-items: center; gap: 8px;
   background: var(--bg); border: 1px solid var(--line);
-  border-radius: 10px; padding: 8px 10px;
+  border-radius: 10px; padding: 9px 12px;
 }
 .v-title { flex: 1; min-width: 0; font-size: 13.5px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .v-note { color: var(--muted); font-size: 12px; }
@@ -93,10 +111,9 @@ body {
 .v-open {
   flex: 0 0 auto; text-decoration: none; font-weight: 600; font-size: 13px;
   color: #fff; background: var(--accent);
-  border-radius: 8px; padding: 6px 10px; min-height: 34px; line-height: 22px;
+  border-radius: 8px; padding: 6px 12px; min-height: 34px; line-height: 22px;
 }
 
-.card-actions { display: flex; flex-direction: column; gap: 8px; justify-content: center; }
 .icon-btn {
   min-width: 44px; min-height: 44px; font-size: 18px; border-radius: 10px;
   background: transparent; border: 1px solid var(--line); color: var(--muted); cursor: pointer;
@@ -104,34 +121,34 @@ body {
 .icon-btn.fav.on { color: var(--yellow); border-color: var(--yellow); }
 .icon-btn.done-btn.on { color: var(--green); border-color: var(--green); }
 
-.empty { text-align: center; padding: 40px 0; }
+.empty { text-align: center; padding: 48px 0; }
 .empty .muted { color: var(--muted); font-size: 14px; margin-top: 6px; }
 .empty a { color: var(--accent); }
 
-.foot { margin-top: 24px; text-align: center; }
+.foot { margin-top: 32px; text-align: center; }
 .foot a { color: var(--muted); font-size: 14px; }
 
-/* ---------- 录入页 admin.html 专用 ---------- */
+/* ---------- 录入页 admin.html ---------- */
 .admin-section {
   background: var(--card); border: 1px solid var(--line);
-  border-radius: 14px; padding: 14px; margin-bottom: 16px;
+  border-radius: 16px; padding: 16px; margin-bottom: 16px;
 }
 .admin-section h2 { font-size: 16px; margin-bottom: 4px; }
-.section-sub { color: var(--muted); font-size: 13px; margin-bottom: 10px; }
-.field { margin-bottom: 12px; }
-.field label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+.section-sub { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+.field { margin-bottom: 14px; }
+.field label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 5px; }
 .field input, .field textarea, .field select {
-  width: 100%; padding: 10px 12px; font-size: 15px;
+  width: 100%; padding: 11px 14px; font-size: 15px;
   background: var(--bg); color: var(--text);
   border: 1px solid var(--line); border-radius: 10px;
   font-family: inherit;
 }
-.field textarea { min-height: 70px; resize: vertical; }
+.field textarea { min-height: 72px; resize: vertical; }
 .checks { display: flex; flex-wrap: wrap; gap: 8px; }
 .checks label {
-  display: flex; align-items: center; gap: 5px;
+  display: flex; align-items: center; gap: 6px;
   border: 1px solid var(--line); border-radius: 999px;
-  padding: 8px 14px; font-size: 15px; cursor: pointer;
+  padding: 9px 16px; font-size: 15px; cursor: pointer;
 }
 .checks input { width: 18px; height: 18px; accent-color: var(--accent); }
 .btn-primary {
@@ -145,5 +162,5 @@ body {
 }
 .warn { color: var(--yellow); font-size: 14px; margin-top: 8px; }
 .ok { color: var(--green); font-size: 14px; margin-top: 8px; }
-.hint { color: var(--muted); font-size: 13px; margin-top: 8px; line-height: 1.6; }
+.hint { color: var(--muted); font-size: 13px; margin-top: 10px; line-height: 1.7; }
 #out { min-height: 180px; font-family: ui-monospace, monospace; font-size: 12px; }

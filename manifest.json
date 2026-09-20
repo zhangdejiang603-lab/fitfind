@@ -1,6 +1,6 @@
 {
-  "name": "健身动作速查",
-  "short_name": "动作速查",
+  "name": "Fitfind",
+  "short_name": "Fitfind",
   "description": "练到哪块肌肉，一键找到对应讲解视频",
   "start_url": "./index.html",
   "display": "standalone",

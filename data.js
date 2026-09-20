@@ -173,6 +173,13 @@ const MOVES = [
         url: "https://www.bilibili.com/video/BV19AxrzQEEH",
         note: "",
         start: null
+      },
+      {
+        blogger: "kaishengwang",
+        title: "【带你练背】第三视角私教课！",
+        url: "https://www.bilibili.com/video/BV1Bh4y1V7ea",
+        note: "章节定位：激活热身段",
+        start: 269
       }
     ]
   },
@@ -268,6 +275,13 @@ const MOVES = [
         url: "https://www.bilibili.com/video/BV1FL2MBME3G",
         note: "",
         start: null
+      },
+      {
+        blogger: "kaishengwang",
+        title: "【练肩的细节和容易出现的问题】第三视角私教课",
+        url: "https://www.bilibili.com/video/BV1RX4y1j7P6",
+        note: "章节定位：后束俯身哑铃提拉",
+        start: 1576
       }
     ]
   },
@@ -491,6 +505,201 @@ const MOVES = [
         url: "https://www.bilibili.com/video/BV1hyWwzeETh",
         note: "",
         start: null
+      }
+    ]
+  },
+
+  // ========== 章节定位动作（start 来自 B 站官方章节数据，打开链接直接跳到该动作）==========
+
+  // ---- 带你练背（凯圣王 BV1Bh4y1V7ea）----
+  {
+    id: "m-018",
+    name: "平拉",
+    part: "back",
+    muscles: ["背阔肌"],
+    equipment: ["cable"],
+    type: "compound",
+    main: false,
+    scheme: "按视频讲解安排",
+    days: ["pull"],
+    tips: "练背课的第2个正式动作",
+    videos: [
+      {
+        blogger: "kaishengwang",
+        title: "【带你练背】第三视角私教课！",
+        url: "https://www.bilibili.com/video/BV1Bh4y1V7ea",
+        note: "章节定位：平拉",
+        start: 691
+      }
+    ]
+  },
+  {
+    id: "m-019",
+    name: "T杆划船",
+    part: "back",
+    muscles: ["背阔肌", "中背"],
+    equipment: ["barbell"],
+    type: "compound",
+    main: false,
+    scheme: "按视频讲解安排",
+    days: ["pull"],
+    tips: "练背课第3个动作，T杆贴胸腹轨迹",
+    videos: [
+      {
+        blogger: "kaishengwang",
+        title: "【带你练背】第三视角私教课！",
+        url: "https://www.bilibili.com/video/BV1Bh4y1V7ea",
+        note: "章节定位：T杆",
+        start: 990
+      }
+    ]
+  },
+  {
+    id: "m-020",
+    name: "杠铃划船",
+    part: "back",
+    muscles: ["背阔肌", "斜方肌中下部"],
+    equipment: ["barbell"],
+    type: "compound",
+    main: true,
+    scheme: "按视频讲解安排",
+    days: ["pull"],
+    tips: "经典练背主项，练背课第4个动作；核心稳定比重量重要",
+    videos: [
+      {
+        blogger: "kaishengwang",
+        title: "【带你练背】第三视角私教课！",
+        url: "https://www.bilibili.com/video/BV1Bh4y1V7ea",
+        note: "章节定位：杠铃划船",
+        start: 1302
+      }
+    ]
+  },
+  {
+    id: "m-021",
+    name: "大剪刀（交替哑铃划船）",
+    part: "back",
+    muscles: ["背阔肌"],
+    equipment: ["dumbbell"],
+    type: "compound",
+    main: false,
+    scheme: "按视频讲解安排",
+    days: ["pull"],
+    tips: "交替划船，练背课第5个动作",
+    videos: [
+      {
+        blogger: "kaishengwang",
+        title: "【带你练背】第三视角私教课！",
+        url: "https://www.bilibili.com/video/BV1Bh4y1V7ea",
+        note: "章节定位：大剪刀",
+        start: 1557
+      }
+    ]
+  },
+
+  // ---- 练肩私教课（凯圣王 BV1RX4y1j7P6）----
+  {
+    id: "m-022",
+    name: "肩部热身激活",
+    part: "shoulders",
+    muscles: ["三角肌", "肩袖"],
+    equipment: ["band", "dumbbell"],
+    type: "warmup",
+    main: false,
+    scheme: "以充分激活为准",
+    days: ["push"],
+    tips: "练肩课的热身段，肩袖激活别跳过",
+    videos: [
+      {
+        blogger: "kaishengwang",
+        title: "【练肩的细节和容易出现的问题】第三视角私教课",
+        url: "https://www.bilibili.com/video/BV1RX4y1j7P6",
+        note: "章节定位：肩部热身激活",
+        start: 282
+      }
+    ]
+  },
+  {
+    id: "m-023",
+    name: "哑铃侧平举",
+    part: "shoulders",
+    muscles: ["三角肌中束"],
+    equipment: ["dumbbell"],
+    type: "isolation",
+    main: false,
+    scheme: "按视频讲解安排",
+    days: ["push"],
+    tips: "中束孤立动作，练肩课第2个动作；轻重量高控制",
+    videos: [
+      {
+        blogger: "kaishengwang",
+        title: "【练肩的细节和容易出现的问题】第三视角私教课",
+        url: "https://www.bilibili.com/video/BV1RX4y1j7P6",
+        note: "章节定位：哑铃侧平举",
+        start: 675
+      }
+    ]
+  },
+  {
+    id: "m-024",
+    name: "哑铃推举",
+    part: "shoulders",
+    muscles: ["三角肌前束", "中束"],
+    equipment: ["dumbbell"],
+    type: "compound",
+    main: true,
+    scheme: "按视频讲解安排",
+    days: ["push"],
+    tips: "肩部主项，练肩课第3个动作",
+    videos: [
+      {
+        blogger: "kaishengwang",
+        title: "【练肩的细节和容易出现的问题】第三视角私教课",
+        url: "https://www.bilibili.com/video/BV1RX4y1j7P6",
+        note: "章节定位：哑铃推举",
+        start: 1093
+      }
+    ]
+  },
+  {
+    id: "m-025",
+    name: "杠铃俯身前平举",
+    part: "shoulders",
+    muscles: ["三角肌前束"],
+    equipment: ["barbell"],
+    type: "isolation",
+    main: false,
+    scheme: "按视频讲解安排",
+    days: ["push"],
+    tips: "前束孤立，练肩课第4个动作",
+    videos: [
+      {
+        blogger: "kaishengwang",
+        title: "【练肩的细节和容易出现的问题】第三视角私教课",
+        url: "https://www.bilibili.com/video/BV1RX4y1j7P6",
+        note: "章节定位：杠铃俯身前平举",
+        start: 1376
+      }
+    ]
+  },
+  {
+    id: "m-026",
+    name: "肩关节水平外展",
+    part: "shoulders",
+    muscles: ["肩袖肌群", "三角肌后束"],
+    equipment: ["dumbbell"],
+    type: "isolation",
+    main: false,
+    scheme: "按视频讲解安排",
+    days: ["pull"],
+    tips: "肩袖健康向动作，练肩课收尾",
+    videos: [
+      {
+        blogger: "kaishengwang",
+        title: "【练肩的细节和容易出现的问题】第三视角私教课",
+        url: "https://www.bilibili.com/video/BV1RX4y1j7P6",
+        note: "章节定位：肩关节水平外展",
+        start: 1821
       }
     ]
   }
