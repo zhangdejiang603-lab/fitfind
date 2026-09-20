@@ -8,8 +8,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>健身动作速查</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="assets/icon-192.png">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="top">
@@ -17,7 +17,7 @@
     <input id="q" type="search" placeholder="搜动作 / 肌肉 / 要点，如：高位下拉" autocomplete="off">
   </header>
 
-  <!-- 筛选区：全部由 js/app.js 根据 data.js 的表自动生成 -->
+  <!-- 筛选区：全部由 app.js 根据 data.js 的表自动生成 -->
   <section class="filters">
     <div class="chip-row" id="partChips"></div>
     <div class="chip-row small" id="equipChips"></div>
@@ -45,7 +45,7 @@
     <p class="hint">视频行上的 ▶ 时间是该动作开始讲解的位置；B 站/YouTube 链接会自动从该处播放，抖音链接请手动拖到此时间。</p>
   </footer>
 
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

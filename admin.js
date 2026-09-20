@@ -131,7 +131,7 @@ $("addVideoBtn").onclick = () => {
 
 // ---------- ③ 导出完整 data.js ----------
 function dataJsText() {
-  return "// 本文件由 admin.html 生成，可直接整体覆盖 js/data.js\n"
+  return "// 本文件由 admin.html 生成，可直接整体覆盖项目里的 data.js\n"
     + "// BLOGGERS=博主  PARTS=大部位  EQUIPMENT=器械  MOVE_TYPES=类型  DAYS=训练日  MOVES=动作库\n\n"
     + "const BLOGGERS = " + JSON.stringify(bloggers, null, 2) + ";\n\n"
     + "const PARTS = " + JSON.stringify(PARTS, null, 2) + ";\n\n"
