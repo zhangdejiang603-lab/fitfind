@@ -22,6 +22,12 @@
 //   start:   该动作在视频里的开始时间（秒，选填 null）
 //            ——B 站/YouTube 链接会自动从此处播放；
 //              抖音不支持链接跳时间，卡片显示「▶ 3:25」手动拖过去
+//
+// v0.3 更新（2026-09-21）：
+//   · 方案/要点按"凯圣王×谭成义三分化"公开资料充实为具体组数×次数
+//   · 新增 m-027 焚决背部完整跟练课、m-028 腿日热身流程
+//   · 所有链接经 B 站 API 逐一验证真实；标注"整理自公开资料"的方案
+//     建议以视频实际内容为准
 // ============================================================
 
 const BLOGGERS = [
@@ -193,7 +199,7 @@ const MOVES = [
     equipment: ["barbell", "dumbbell", "bench"],
     type: "compound",
     main: true,
-    scheme: "按视频讲解安排",
+    scheme: "4组×12次（哑铃上斜，三分化计划）",
     days: ["push"],
     tips: "视频前半是胸部热身激活，后半专讲上斜卧推的正确做法",
     videos: [
@@ -242,9 +248,9 @@ const MOVES = [
     equipment: ["barbell"],
     type: "compound",
     main: true,
-    scheme: "按视频讲解安排",
+    scheme: "4组：15/12/10/8次，逐周加重递减，第3周末组力竭",
     days: ["push"],
-    tips: "腿驱=把下肢力量传导进推起；凯圣王卧推系列第17期专讲",
+    tips: "腿驱=把下肢力量传导进推起；凯圣王卧推系列第17期专讲。计划版要点：离心阶段肩胛后倾内收、握距适中触胸但保持张力、RPE8（每组留2次余力）",
     videos: [
       {
         blogger: "kaishengwang",
@@ -350,9 +356,9 @@ const MOVES = [
     equipment: ["barbell", "dumbbell"],
     type: "compound",
     main: false,
-    scheme: "4组×10–12次",
+    scheme: "3组×12次（三分化计划）",
     days: ["legsday"],
-    tips: "微屈膝锁定；臀部往后平移主导，杠铃贴小腿走；离心越慢臀越圆；别弓背",
+    tips: "微屈膝锁定；臀部往后平移主导，杠铃贴小腿走；离心越慢臀越圆；别弓背。计划版要点：从上往下开始（区别于传统硬拉）、瓦氏呼吸（吸气闭气、膈肌与肩胛下沉）、正握不要正反握",
     videos: [
       {
         blogger: "tanchengyi",
@@ -377,9 +383,9 @@ const MOVES = [
     equipment: ["dumbbell", "bench"],
     type: "compound",
     main: false,
-    scheme: "3组×每侧10次",
+    scheme: "4组×每侧10次（三分化计划）",
     days: ["legsday"],
-    tips: "后脚搭凳，上身前倾约15°，重心压前脚跟外侧；想着用臀把上半身顶起来",
+    tips: "后脚搭凳，上身前倾约15°，重心压前脚跟外侧；想着用臀把上半身顶起来。两种模式：直立更多股四参与、前倾更多臀部参与",
     videos: [
       {
         blogger: "tanchengyi",
@@ -404,9 +410,9 @@ const MOVES = [
     equipment: ["machine"],
     type: "isolation",
     main: false,
-    scheme: "按视频讲解安排",
+    scheme: "三种模式按需选择",
     days: ["legsday"],
-    tips: "腿屈伸的三种模式，按能力进阶选择",
+    tips: "标准模式：全程控制+顶峰收缩（所有人）；窄距脚尖内收→强化股四外侧；宽距脚尖外展→强化股四内侧",
     videos: [
       {
         blogger: "tanchengyi",
@@ -495,15 +501,22 @@ const MOVES = [
     equipment: ["dumbbell", "barbell"],
     type: "isolation",
     main: false,
-    scheme: "按视频讲解安排",
+    scheme: "下压5组→仰卧臂屈伸4×12→高位/低位绳索弯举各4×12→钢线弯举3×12（整理自公开资料，以视频为准）",
     days: ["push", "pull"],
-    tips: "手臂纯享版，推日拉日都能加",
+    tips: "手臂纯享版，推日拉日都能加；安排版视频含整套组数次数表",
     videos: [
       {
         blogger: "tanchengyi",
         title: "手臂纯享版教学视频来喽，赶紧练起来",
         url: "https://www.bilibili.com/video/BV1hyWwzeETh",
         note: "",
+        start: null
+      },
+      {
+        blogger: "tanchengyi",
+        title: "二练手臂训练安排，希望对大家有所参考，有所帮助！！",
+        url: "https://www.bilibili.com/video/BV1wvMF6ZEqL",
+        note: "B站5.3万播放，整套手臂训练安排",
         start: null
       }
     ]
@@ -700,6 +713,50 @@ const MOVES = [
         url: "https://www.bilibili.com/video/BV1RX4y1j7P6",
         note: "章节定位：肩关节水平外展",
         start: 1821
+      }
+    ]
+  },
+
+  // ---- 焚决系列完整课 & 腿日热身（v0.3 新增）----
+
+  {
+    id: "m-027",
+    name: "焚决·背部完整跟练课",
+    part: "back",
+    muscles: ["背阔肌", "中背"],
+    equipment: ["cable", "machine"],
+    type: "compound",
+    main: false,
+    scheme: "整课跟练27分钟",
+    days: ["pull"],
+    tips: "可成长性三档：新手轻重量15–20次建神经连接；进阶10–12次强化发力感；高手6–8次大重量冲机械张力。离心吸气、向心呼气，顶峰快速换气",
+    videos: [
+      {
+        blogger: "tanchengyi",
+        title: "焚决系列之背部跟练，细节很多，希望大家能好好练习，保持进步，加油！！",
+        url: "https://www.bilibili.com/video/BV1eVm7BWELV",
+        note: "B站14.5万播放，焚决体系完整课",
+        start: null
+      }
+    ]
+  },
+  {
+    id: "m-028",
+    name: "腿部训练前热身流程",
+    part: "legs",
+    muscles: ["髋关节", "踝关节", "下肢链"],
+    equipment: ["bodyweight", "foamroller"],
+    type: "warmup",
+    main: false,
+    scheme: "7步动态流程，约8–10分钟",
+    days: ["legsday"],
+    tips: "①动态青蛙趴 ②髋9090 ③闭眼单腿站（踝激活）④泡沫轴松解胫骨前肌 ⑤泡沫轴小腿/大腿前侧/内侧 ⑥泡沫轴臀与阔筋膜张肌 ⑦伟大者拉伸",
+    videos: [
+      {
+        blogger: "tanchengyi",
+        title: "三分化⑤跟练：腿（股四头肌+腘绳肌）",
+        url: "https://www.douyin.com/shipin/7627299540386973731",
+        note: "抖音，课首含完整练腿前热身讲解"
       }
     ]
   }
